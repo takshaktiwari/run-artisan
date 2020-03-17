@@ -1,3 +1,3 @@
-#Run Artisan
+# Run Artisan
 
-##Run artisan commands with any termial only via url in laravel
+## Run artisan commands with any termial only via url in laravel
