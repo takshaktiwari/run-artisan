@@ -1,0 +1,19 @@
+{
+    "name": "kodexploit/runartisan",
+    "description": "Run artisan commands via url in laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Takshak Tiwari",
+            "email": "takshaktiwari@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Kodexploit\\Runartisan\\": "src/"
+        }
+    },
+}
