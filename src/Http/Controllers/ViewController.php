@@ -8,26 +8,26 @@ use Artisan;
 
 class ViewController extends Controller
 {
+    public $output = [];
 
     public function cache($value='')
     {
         Artisan::call('view:cache');
-        $this->output();
+        array_push($this->output, Artisan::output());
+        return $this->show_output();
     }
 
     public function clear($value='')
     {
         Artisan::call('view:clear');
-        $this->output();
+        array_push($this->output, Artisan::output());
+        return $this->show_output();
     }
-
     
 
-    public function output($msg='')
+    public function show_output($output='')
     {
-    	echo "<pre>";
-    	print_r (Artisan::output());
-    	echo "</pre>";
+        return view('runartisan::output')->with('output', $this->output);
     }
 
 

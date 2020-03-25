@@ -6,64 +6,77 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Artisan;
 
-class MigrateController extends Controller
+class QueueController extends Controller
 {
     public $output = [];
-
-    public function index()
+    
+    public function failed($value='')
     {
-    	return view('runartisan::index');
-    }
-
-    public function migrate($value='')
-    {
-        Artisan::call('migrate');
+        Artisan::call('queue:failed');
         array_push($this->output, Artisan::output());
         return $this->show_output();
     }
 
-    public function fresh($value='')
+    public function failed_table($value='')
     {
-        Artisan::call('migrate:fresh');
+        Artisan::call('queue:failed-table');
         array_push($this->output, Artisan::output());
         return $this->show_output();
     }
 
-    public function install($value='')
+    public function flush($value='')
     {
-        Artisan::call('migrate:install');
+        Artisan::call('queue:flush');
         array_push($this->output, Artisan::output());
         return $this->show_output();
     }
 
-    public function refresh($value='')
+    public function forget($value='')
     {
-        Artisan::call('migrate:refresh');
+        Artisan::call('queue:forget');
         array_push($this->output, Artisan::output());
         return $this->show_output();
     }
 
-    public function reset($value='')
+    public function listen($value='')
     {
-        Artisan::call('migrate:reset');
+        Artisan::call('queue:listen');
         array_push($this->output, Artisan::output());
         return $this->show_output();
     }
 
-    public function rollback($value='')
+    public function restart($value='')
     {
-        Artisan::call('migrate:rollback');
+        Artisan::call('queue:restart');
         array_push($this->output, Artisan::output());
         return $this->show_output();
     }
 
-    public function status($value='')
+    public function retry($value='')
     {
-        Artisan::call('migrate:status');
+        Artisan::call('queue:retry');
         array_push($this->output, Artisan::output());
         return $this->show_output();
     }
 
+    public function table($value='')
+    {
+        Artisan::call('queue:table');
+        array_push($this->output, Artisan::output());
+        return $this->show_output();
+    }
+
+    public function work($value='')
+    {
+        Artisan::call('queue:work');
+        array_push($this->output, Artisan::output());
+        return $this->show_output();
+    }
+
+
+
+
+    
 
     public function show_output($output='')
     {

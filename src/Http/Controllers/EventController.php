@@ -8,38 +8,41 @@ use Artisan;
 
 class EventController extends Controller
 {
-
+    public $output = [];
+    
     public function cache($value='')
     {
         Artisan::call('event:cache');
-        $this->output();
+        array_push($this->output, Artisan::output());
+        return $this->show_output();
     }
 
     public function clear($value='')
     {
         Artisan::call('event:clear');
-        $this->output();
+        array_push($this->output, Artisan::output());
+        return $this->show_output();
     }
 
     public function generate($value='')
     {
         Artisan::call('event:generate');
-        $this->output();
+        array_push($this->output, Artisan::output());
+        return $this->show_output();
     }
 
     public function list($value='')
     {
         Artisan::call('event:list');
-        $this->output();
+        array_push($this->output, Artisan::output());
+        return $this->show_output();
     }
 
     
 
-    public function output($msg='')
+    public function show_output($output='')
     {
-    	echo "<pre>";
-    	print_r (Artisan::output());
-    	echo "</pre>";
+        return view('runartisan::output')->with('output', $this->output);
     }
 
 

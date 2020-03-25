@@ -8,32 +8,34 @@ use Artisan;
 
 class RouteController extends Controller
 {
-
+    public $output = [];
+    
     public function cache($value='')
     {
         Artisan::call('route:cache');
-        $this->output();
+        array_push($this->output, Artisan::output());
+        return $this->show_output();
     }
 
     public function clear($value='')
     {
         Artisan::call('route:clear');
-        $this->output();
+        array_push($this->output, Artisan::output());
+        return $this->show_output();
     }
 
     public function list($value='')
     {
         Artisan::call('route:list');
-        $this->output();
+        array_push($this->output, Artisan::output());
+        return $this->show_output();
     }
 
     
 
-    public function output($msg='')
+    public function show_output($output='')
     {
-    	echo "<pre>";
-    	print_r (Artisan::output());
-    	echo "</pre>";
+        return view('runartisan::output')->with('output', $this->output);
     }
 
 
