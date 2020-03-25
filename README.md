@@ -9,11 +9,11 @@ You will only be able to access these urls or package when your `APP_DEBUG` vari
 Base URL for this package will be [https://example.com/run/{param1}/{param2}.](#)
 
 **For Example:-**
-> https://example.com/run/list 
+> [https://example.com/run/list](#) 
 
-> https://example.com/run/migrate
+> [https://example.com/run/migrate](#)
 
-> https://example.com/run/cache/clear
+> [https://example.com/run/cache/clear](#)
 
 
 |  URL| Description |
@@ -75,4 +75,4 @@ Base URL for this package will be [https://example.com/run/{param1}/{param2}.](#
 
 > **Email**: 	takshaktiwari@gmail.com
 
-> **Web**:	[takshaktiwari.com](takshaktiwari.com)
+> **Web**:	[takshaktiwari.com](https://takshaktiwari.com)
